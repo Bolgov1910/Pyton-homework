@@ -6,7 +6,7 @@
 
 
 
-num = int(input("ведите количество монет: "))
+num = int(input("Ведите количество монет: "))
 current_eagle = 0
 current_tails = 0
 for i in range(num):

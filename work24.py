@@ -11,18 +11,28 @@
 # собирающий модуль, находясь перед некоторым кустом заданной во входном файле грядки.
 
 numBush = int(input("Введите количество кустов: "))
-# Bush = list (range(1, numBush+1))
-# numBery = []
-# for i in range(numBush):
-#     Bery= [int(input("Введите ягод на кусте: "))]
-#     numBery.append(Bery)
-# numBery = list (numBery)
+numBery = []
+for i in range(numBush):
+    Bery= (int(input(f"Введите количество ягод на кусте {i+1}: ")))
+    numBery.append(Bery)      # составляем список с количеством ягод для каждого куста
+
+sumFirst = numBery[0]+numBery[1] + numBery[numBush-1]        # если встаем у первого куста
+sumLast = numBery[numBush-1]+numBery[numBush-2] + numBery[0] # если встаем у последнего куста
+sumRest = 0                                                  # для остальных
+вushNum = 0
+for i in range(1,len(numBery)-1):
+    sum = numBery[i] + numBery[i+1] + numBery[i-1]
+    if sum > sumRest:
+        sumRest = sum
+        вushNum = i 
+numMax = max(sumFirst, sumLast, sumRest)
+
 print(f"Количество кустов {numBush}")
-# print(f"Список кустов {Bush}")
-# print(f"Список ягод {numBery}")
-
-
-
-#print(f"и множесва {mas2}")
-#print(f" это {intersection}")
+print(f"Список ягод для кустов {numBery}")
+if sumFirst == numMax:
+    print(f"Можно собрать максимум: {numMax} если встать у первого куста")
+elif sumLast == numMax and sumRest < numMax:
+    print(f"Можно собрать максимум: {numMax} если встать у последнего куста")
+else:
+    print(f"Можно собрать максимум: {numMax} если встать к куста № {вushNum+1}")
 

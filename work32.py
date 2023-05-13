@@ -24,5 +24,5 @@ for i in range(num-1):          # заполняем оба списка по у
 
 print  ("В списке", A, sep='\n')
 print  (f"В диапазоне {aMin} - {aMax} находятся значения с индексами: ")
-for i in range(len(listInd)):      # печать циклом из обеох спписков: индекс-значение
+for i in range(len(listInd)):      # печать циклом из обоих спписков: индекс-значение
     print (listInd[i],"(значение" ,listValue[i],")") 
